@@ -11,12 +11,22 @@ const router = createRouter({
     },
     {
       path: '/skills',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/HomeView.vue')
-    }
+      name: 'SkillIndex',
+
+      component: () => import('../views/skills/Skillindex.vue')
+    },
+    {
+      path: '/skills/create',
+      name: 'SkillCreate',
+
+      component: () => import('../views/skills/SkillCreate.vue')
+    },
+    {
+      path: '/skills/:id/edit',
+      name: 'SkillEdit',
+
+      component: () => import('../views/skills/SkillEdit.vue')
+    } 
   ]
 })
 
