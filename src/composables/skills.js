@@ -9,6 +9,8 @@ export default function useSkills() //In Vue.js, the concept of composition func
 {
     const skills = ref([]);
     const skill = ref([]);
+    const errors = ref({});
+    
     const getSkills = async () => // Return all records in the skill table
     {
 
@@ -25,6 +27,22 @@ export default function useSkills() //In Vue.js, the concept of composition func
         skill.value = response.data.data
     }
 
+    const storeSkill = async (data) => //to create a record. Define an async function called `storeSkill` that takes a `data` parameter
+
+    {
+       try {
+        await axios.post("skills", data);    // Use axios to send a POST request to the server with the `data` object as the request body
+
+       } catch (error) {
+            if (error.response.status === 422) //If an error occurs, check if the error response status is 422 (Unprocessable Entity)
+            {
+                errors.value = error.response.data.errors;//If it is, update the `errors` ref's `.value` property with the error response data's `errors` property
+
+            }
+       }
+    }
+   
+   
     return {
 
     };
