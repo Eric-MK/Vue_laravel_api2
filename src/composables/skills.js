@@ -1,8 +1,7 @@
 import { ref } from "vue";// import the ref function from the vue module.
 //ref is a built-in function that allows you to create reactive variables. When a variable is defined as a ref, any changes made to its value are automatically tracked by Vue.js, and any components that use that variable will be updated to reflect the new value.
-
 import axios from 'axios';//Axios is a popular JavaScript library that is used for making HTTP requests from the browser or from a Node.js server.
-
+import { userRouter } from 'vue-router'
 axios.defaults.baseURL ="http://127.0.0.1:8000/api/v1/";
 
 export default function useSkills() //In Vue.js, the concept of composition functions is introduced to improve code organization and reuse. The use prefix is used to indicate that the function is a composition function. This function can be imported and used in other parts of your Vue.js application to provide the desired functionality.
@@ -10,6 +9,8 @@ export default function useSkills() //In Vue.js, the concept of composition func
     const skills = ref([]);
     const skill = ref([]);
     const errors = ref({});
+    const router = userRouter();//** */
+
     
     const getSkills = async () => // Return all records in the skill table
     {
@@ -25,6 +26,7 @@ export default function useSkills() //In Vue.js, the concept of composition func
     {
        const response = await axios.get("skills" + id);
         skill.value = response.data.data
+        await router.push({name: "SkillIndex"});//send or push it to skill index
     }
 
     const storeSkill = async (data) => //to create a record. Define an async function called `storeSkill` that takes a `data` parameter
