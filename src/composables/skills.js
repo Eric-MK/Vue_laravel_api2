@@ -44,8 +44,24 @@ export default function useSkills() //In Vue.js, the concept of composition func
        }
     }
    
+   const updateSkill = async (id) => //update
+   {
+      try {
+        await axios.post("skills/" + id, skill.value);//skill.value variable is used to store the updated skill data.
+
+      } catch (error) {
+        if (error.response.status === 422) //If the request fails due to a validation error (status code 422), the error message will be stored in the errors.value variable.
+            {
+                errors.value = error.response.data.errors;
+            }
+      }
    
-    return {
+
+  }
+   
+   
+   
+   return {
 
     };
 }
