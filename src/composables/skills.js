@@ -34,7 +34,7 @@ export default function useSkills() //In Vue.js, the concept of composition func
     {
        try {
         await axios.post("skills", data);    // Use axios to send a POST request to the server with the `data` object as the request body
-        await router.push({name: "SkillIndex"});//send or push it to skill index
+        await router.push({name: "Skillindex"});//send or push it to skill index
        } catch (error) {
             if (error.response.status === 422) //If an error occurs, check if the error response status is 422 (Unprocessable Entity)
             {
@@ -48,7 +48,7 @@ export default function useSkills() //In Vue.js, the concept of composition func
    {
       try {
         await axios.put("skills/" + id, skill.value);//skill.value variable is used to store the updated skill data.
-        await router.push({name: "SkillIndex"});
+        await router.push({name: "Skillindex"});
       } catch (error) {
         if (error.response.status === 422) //If the request fails due to a validation error (status code 422), the error message will be stored in the errors.value variable.
             {
