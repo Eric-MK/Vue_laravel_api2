@@ -1,7 +1,4 @@
-<script setup>
 
-import useSkills from '../../composables/skills';//import useSkills function
-</script>
 <template>
  <div class="mt-12">
     
@@ -10,62 +7,30 @@ import useSkills from '../../composables/skills';//import useSkills function
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                   name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    slug
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Category
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Price
-                </th>
+               
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="px-6 py-4">
-                    Silver
+            <tr v-for="skill in skills" :key="skill.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   {{ skill.name }}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                    {{ skill.slug }}
                 </td>
                 <td class="px-6 py-4">
-                    $2999
+                    {{ skill.slug }}
                 </td>
             </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-            </tr>
+         
         </tbody>
     </table>
 </div>
@@ -73,3 +38,13 @@ import useSkills from '../../composables/skills';//import useSkills function
 
  </div>
 </template>
+<script setup>
+import useSkills from '../../composables/skills';
+import { onMounted } from 'vue';
+
+const { skills, getSkills } = useSkills(); //get skills array  and getSkills function from useSkills()
+
+onMounted(() => {
+  getSkills();
+});
+</script>
