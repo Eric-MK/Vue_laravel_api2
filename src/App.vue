@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
   </header>
   <main class="max-w-7xl mx-auto min-h-screen">
-    <RouterView />
+    <RouterView /><!-- <RouterView> is used to display the component that matches the current route. It is placed within the main element to fill the content area of the app with the appropriate component based on the current route. -->
   </main>
   
 </template>
