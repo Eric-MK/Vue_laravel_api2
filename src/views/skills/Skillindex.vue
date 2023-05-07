@@ -1,4 +1,6 @@
 <script setup>
+
+import useSkills from '../../composables/skills';//import useSkills function
 </script>
 <template>
  <div class="mt-12">
