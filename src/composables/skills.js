@@ -55,10 +55,18 @@ export default function useSkills() //In Vue.js, the concept of composition func
                 errors.value = error.response.data.errors;
             }
       }
-   
-
   }
    
+  const destroySkill =  async (id) =>  
+  {
+    if(!window.confirm("Are you Sure?"))//The function first checks with the user using window.confirm to confirm whether they want to delete the record. If the user cancels the confirmation, the function returns without doing anything.
+    {
+        return;
+    }
+    await axios.delete("skills/" + id);
+    await getSkills();//update get skills function After the deletion is complete, the getSkills function is called to update the list of skills and update any components that use the skills variable to reflect the change.
+
+  }
    
    
    return {
