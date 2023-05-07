@@ -11,7 +11,7 @@ const router = createRouter({
     },
     {
       path: '/skills',
-      name: 'SkillIndex',
+      name: 'Skillindex',
 
       component: () => import('../views/skills/Skillindex.vue')
     },

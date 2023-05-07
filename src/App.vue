@@ -20,6 +20,8 @@ import { RouterLink, RouterView } from "vue-router";
       </nav>
     </div>
   </header>
-  <main class="max-w-7xl mx-auto min-h-screen"></main>
-  <RouterView />
+  <main class="max-w-7xl mx-auto min-h-screen">
+    <RouterView />
+  </main>
+  
 </template>
