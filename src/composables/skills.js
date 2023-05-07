@@ -57,7 +57,7 @@ export default function useSkills() //In Vue.js, the concept of composition func
       }
   }
    
-  const destroySkill =  async (id) =>  
+  const destroySkill =  async (id) =>  //delete function
   {
     if(!window.confirm("Are you Sure?"))//The function first checks with the user using window.confirm to confirm whether they want to delete the record. If the user cancels the confirmation, the function returns without doing anything.
     {
@@ -69,7 +69,15 @@ export default function useSkills() //In Vue.js, the concept of composition func
   }
    
    
-   return {
-
-    };
+   return {//return the values so that they cam be imported
+    
+    skill,
+    skills,
+    getSkill,
+    getSkills,
+    storeSkill,
+    updateSkill,
+    destroySkill,
+    errors,
+        };
 }
